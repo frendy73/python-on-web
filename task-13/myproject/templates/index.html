@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<h1>Главная страница</h1>
+<h2>Категории продуктов</h2>
+<ul>
+    {% for category in product_categories %}
+    <li>{{ category }}</li>
+    {% endfor %}
+</ul>
+<p>Первый магазин работает {{ store_name }}</p>
+<p>Номер № 1</p>
+</body>
+</html>

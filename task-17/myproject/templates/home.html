@@ -1,0 +1,36 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мир книг</title>
+</head>
+<body>
+<h1>Сайт "Мир книг"</h1>
+
+<h2>Список авторов в БД</h2>
+<ul>
+    {% for author in authors %}
+        <li>{{ author.name }}, родился: {{ author.birth_date }}{% if author.death_date %}, умер: {{ author.death_date }}{% endif %}</li>
+    {% endfor %}
+</ul>
+
+<div class="pagination">
+        <span class="step-links">
+            {% if authors.has_previous %}
+                <a href="?page=1">&laquo; первая</a>
+                <a href="?page={{ authors.previous_page_number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ authors.number }} из {{ authors.paginator.num_pages }}.
+            </span>
+
+            {% if authors.has_next %}
+                <a href="?page={{ authors.next_page_number }}">следующая</a>
+                <a href="?page={{ authors.paginator.num_pages }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+</div>
+</body>
+</html>
